@@ -12,8 +12,7 @@ const links = [
   ["TV Paketleri", "/digiturk-tv-paketleri"],
   ["NEO Paketleri", "/neo-paketleri"],
   ["TV + İnternet", "/tv-internet-paketleri"],
-  ["Hakkımızda", `${base}/hakkimizda/`],
-  ["İletişim", `${base}/iletisim/`],
+  ["İletişim", "/iletisim"],
   ["SSS", "/sikca-sorulan-sorular"],
 ];
 function Arrow() {
@@ -123,9 +122,6 @@ export function SiteHeader() {
             </span>
           </a>
           <span className="action-divider" aria-hidden="true" />
-          <a className="join-button" href={`${base}/basvuru`}>
-            Üye ol
-          </a>
           <a className="buy-button" href={`${base}/basvuru`}>
             Satın al ve izle
             <Arrow />
@@ -177,10 +173,6 @@ export function SiteHeader() {
             <span>
               <small>Başvuru hattı</small>0850 346 73 73
             </span>
-          </a>
-          <a className="join-button" href={`${base}/basvuru`}>
-            Üye ol
-            <Arrow />
           </a>
         </div>
       </div>

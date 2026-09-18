@@ -7,8 +7,8 @@ const columns = [
     title: "KEŞFEDİN",
     links: [
       ["Uydu paketleri", "/digiturk-tv-paketleri"],
-      ["İnternet paketleri", `${base}/internetpaketleri`],
-      ["Tüm paketler", `${base}/paketlerimiz`],
+      ["NEO paketleri", "/neo-paketleri"],
+      ["TV + İnternet", "/tv-internet-paketleri"],
       ["Maç takvimi", "/#mac-takvimi"],
     ],
   },
@@ -17,8 +17,7 @@ const columns = [
     links: [
       ["Sıkça sorulan sorular", "/sikca-sorulan-sorular"],
       ["Başvuru yapın", `${base}/basvuru`],
-      ["İletişim", `${base}/iletisim/`],
-      ["Hakkımızda", `${base}/hakkimizda/`],
+      ["İletişim", "/iletisim"],
     ],
   },
 ];

@@ -18,6 +18,13 @@ body {
   color: var(--foreground);
   font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
 }
+
+.matches-section,
+.faq-section,
+.site-footer {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 760px;
+}
 html {
   scroll-behavior: smooth;
   scroll-padding-top: 120px;

@@ -15,7 +15,7 @@ const slides = [
     category: "İNTERNET + EĞLENCE",
     description: "Digiturk internet paketleriyle hız ve eğlence bir arada.",
     alt: "Digiturk internet: Fiber hız çok net. İlk 3 ay 349 TL’den başlayan fiyatlarla.",
-    href: "https://ligtv-beinconnect.com.tr/internetpaketleri",
+    href: "/tv-internet-paketleri",
   },
   {
     image: "/slides/banner-2.png",
@@ -23,7 +23,7 @@ const slides = [
     category: "OYUNCULARA ÖZEL",
     description: "Oyun keyfine eşlik edecek internet paketlerini keşfet.",
     alt: "Oyunculara özel Digiturk internet kampanyası. İlk 3 ay 349 TL’den başlayan fiyatlarla, 1000 Mbps’e kadar internet.",
-    href: "https://ligtv-beinconnect.com.tr/internetpaketleri",
+    href: "/tv-internet-paketleri",
   },
   {
     image: "/slides/banner-3.png",
@@ -31,7 +31,7 @@ const slides = [
     category: "FİBER İNTERNET",
     description: "Evinin bağlantısını yeni nesil fiberle buluştur.",
     alt: "Digiturk internet: Fiberde yeni nesil hız. İlk 3 ay 499 TL’den başlayan fiyatlarla. Kampanya koşulları için detayları inceleyin.",
-    href: "https://ligtv-beinconnect.com.tr/internetpaketleri",
+    href: "/tv-internet-paketleri",
   },
 ];
 
