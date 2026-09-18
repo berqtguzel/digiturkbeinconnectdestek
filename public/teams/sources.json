@@ -1,0 +1,32 @@
+﻿[
+    {
+        "file":  "trabzon.png",
+        "source":  "https://www.futbollogo.com/takim.php?id=25",
+        "image":  "https://www.futbollogo.com/resimler/logolar/ts.png"
+    },
+    {
+        "file":  "galatasaray.png",
+        "source":  "https://www.futbollogo.com/takim.php?id=16",
+        "image":  "https://www.futbollogo.com/resimler/logolar/galatasaray.png"
+    },
+    {
+        "file":  "fenerbahce.png",
+        "source":  "https://www.futbollogo.com/takim.php?id=15",
+        "image":  "https://www.futbollogo.com/resimler/logolar/fenerbahce.png"
+    },
+    {
+        "file":  "eyup.png",
+        "source":  "https://www.futbollogo.com/takim.php?id=48",
+        "image":  "https://www.futbollogo.com/resimler/logolar/eyupspor.png"
+    },
+    {
+        "file":  "amed.png",
+        "source":  "https://www.futbollogo.com/takim.php?id=1434",
+        "image":  "https://www.futbollogo.com/resimler/logolar/amedspor.png"
+    },
+    {
+        "file":  "besiktas.png",
+        "source":  "https://www.futbollogo.com/takim.php?id=11",
+        "image":  "https://www.futbollogo.com/resimler/logolar/bjk.png"
+    }
+]
