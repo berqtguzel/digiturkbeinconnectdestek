@@ -53,9 +53,25 @@ export function DigitalPackagesPage({ mode, plans }: Props) {
           </a>
         </div>
         <div className="digital-hero-visual" aria-hidden="true">
-          <span>{internet ? "35" : "NEO"}</span>
-          <small>{internet ? "Mbps" : "KUTUSUZ"}</small>
-          <div>{internet ? "TV + INTERNET" : "HER EKRANDA"}</div>
+          <div className="digital-visual-top">
+            <span>{internet ? "DIGITURK NET" : "NEO PLAYER"}</span>
+            <i />
+            <i />
+            <i />
+          </div>
+          <div className="digital-visual-center">
+            <span>{internet ? "35" : "NEO"}</span>
+            <small>{internet ? "Mbps HIZ" : "KUTUSUZ İZLE"}</small>
+          </div>
+          <div className="digital-visual-benefits">
+            <span>{internet ? "Limitsiz internet" : "Smart TV"}</span>
+            <span>{internet ? "TV keyfi" : "Web"}</span>
+            <span>{internet ? "Tek paket" : "Mobil"}</span>
+          </div>
+          <div className="digital-visual-bottom">
+            <span>{internet ? "TV + İNTERNET" : "HER EKRANDA"}</span>
+            <strong>↗</strong>
+          </div>
         </div>
       </section>
       <section id="paketler" className="digital-catalog">

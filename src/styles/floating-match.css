@@ -4,6 +4,8 @@
   right: 18px;
   top: 50%;
   width: 326px;
+  max-width: calc(100vw - 36px);
+  box-sizing: border-box;
   overflow: hidden;
   isolation: isolate;
   padding: 15px;
