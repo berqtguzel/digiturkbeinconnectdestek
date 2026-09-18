@@ -10,7 +10,8 @@ const base = "https://ligtv-beinconnect.com.tr";
 const links = [
   ["Anasayfa", "/"],
   ["TV Paketleri", "/digiturk-tv-paketleri"],
-  ["İnternet Paketleri", `${base}/internetpaketleri`],
+  ["NEO Paketleri", "/neo-paketleri"],
+  ["TV + İnternet", "/tv-internet-paketleri"],
   ["Hakkımızda", `${base}/hakkimizda/`],
   ["İletişim", `${base}/iletisim/`],
   ["SSS", "/#faq"],
