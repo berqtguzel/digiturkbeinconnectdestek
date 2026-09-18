@@ -62,8 +62,9 @@
   border: 1px solid #d8b4ff3d;
   border-radius: 32px;
   background:
-    radial-gradient(circle at 70% 15%, #9b38db66, transparent 40%),
-    linear-gradient(145deg, #2b1042, #160c29);
+    radial-gradient(circle at 50% 42%, #9844d94a, transparent 35%),
+    radial-gradient(circle at 90% 5%, #6d2eaa52, transparent 35%),
+    linear-gradient(145deg, #29123c, #160b25 75%);
   box-shadow: 0 30px 80px #05020866;
   text-align: center;
 }
@@ -71,7 +72,7 @@
 .digital-hero-visual:after {
   content: "";
   position: absolute;
-  border: 1px solid #d6b0ff21;
+  border: 1px solid #d6b0ff17;
   border-radius: 50%;
   inset: 12%;
 }
@@ -103,19 +104,46 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 14px;
+  gap: 9px;
 }
-.digital-visual-center > span {
-  font-size: clamp(70px, 7vw, 96px);
-  font-weight: 760;
-  letter-spacing: -7px;
-  line-height: 0.9;
-  text-shadow: 0 12px 40px #b76af044;
+.digital-symbol-wrap {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 130px;
+  height: 130px;
+  margin-bottom: 4px;
+  border: 1px solid #d9b5fa2e;
+  border-radius: 34px;
+  background: linear-gradient(145deg, #ffffff0e, #aa6be00a);
+  box-shadow:
+    0 22px 50px #08020f4f,
+    inset 0 1px 0 #ffffff12;
+  transform: rotate(-4deg);
+}
+.digital-symbol-wrap:after {
+  content: "";
+  position: absolute;
+  inset: 8px;
+  border: 1px solid #d5adf51c;
+  border-radius: 27px;
+}
+.digital-symbol {
+  width: 88px;
+  height: 88px;
+  object-fit: contain;
+  filter: drop-shadow(0 12px 18px #05010866);
+  transform: rotate(4deg);
+}
+.digital-visual-center > strong {
+  font-size: 25px;
+  font-weight: 650;
+  letter-spacing: -0.8px;
 }
 .digital-visual-center > small {
   color: #d7b9f3;
-  font-size: 9px;
-  letter-spacing: 4px;
+  font-size: 7px;
+  letter-spacing: 2.2px;
 }
 .digital-visual-benefits {
   z-index: 1;
@@ -125,12 +153,23 @@
   margin-bottom: 18px;
 }
 .digital-visual-benefits span {
-  padding: 9px 5px;
+  display: flex;
+  min-height: 55px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  padding: 8px 5px;
   border: 1px solid #d2aff329;
   border-radius: 8px;
   background: #c398ec0a;
   color: #bfa7d2;
   font-size: 8px;
+}
+.digital-visual-benefits b {
+  color: #f2e7fc;
+  font-size: 15px;
+  font-weight: 650;
 }
 .digital-visual-bottom {
   z-index: 1;

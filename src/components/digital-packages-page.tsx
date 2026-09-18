@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import { ApplicationSection } from "@/components/application-section";
 import type { DigitalPlan } from "@/data/digital-plans";
@@ -60,13 +61,32 @@ export function DigitalPackagesPage({ mode, plans }: Props) {
             <i />
           </div>
           <div className="digital-visual-center">
-            <span>{internet ? "35" : "NEO"}</span>
-            <small>{internet ? "Mbps HIZ" : "KUTUSUZ İZLE"}</small>
+            <span className="digital-symbol-wrap">
+              <Image
+                src="/digiturk-symbol.png"
+                alt=""
+                width={118}
+                height={118}
+                sizes="118px"
+                className="digital-symbol"
+              />
+            </span>
+            <strong>{internet ? "TV + İnternet" : "NEO"}</strong>
+            <small>{internet ? "AYNI PAKETTE, AYNI EVDE" : "KUTUSUZ DİGİTURK"}</small>
           </div>
           <div className="digital-visual-benefits">
-            <span>{internet ? "Limitsiz internet" : "Smart TV"}</span>
-            <span>{internet ? "TV keyfi" : "Web"}</span>
-            <span>{internet ? "Tek paket" : "Mobil"}</span>
+            <span>
+              <b>{internet ? "35" : "0"}</b>
+              {internet ? "Mbps internet" : "Kurulum"}
+            </span>
+            <span>
+              <b>{internet ? "TV" : "3"}</b>
+              {internet ? "Zengin içerik" : "Ekran desteği"}
+            </span>
+            <span>
+              <b>{internet ? "1" : "∞"}</b>
+              {internet ? "Avantajlı paket" : "Her yerde izle"}
+            </span>
           </div>
           <div className="digital-visual-bottom">
             <span>{internet ? "TV + İNTERNET" : "HER EKRANDA"}</span>
