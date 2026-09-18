@@ -25,6 +25,9 @@
   min-height: 540px;
   padding: 55px 70px 70px;
 }
+.digital-hero > div:first-child {
+  padding-left: clamp(12px, 2vw, 32px);
+}
 .digital-hero h1 {
   margin: 16px 0 20px;
   max-width: 680px;
@@ -736,6 +739,9 @@
   .digital-hero {
     grid-template-columns: 1fr;
     padding: 45px 32px;
+  }
+  .digital-hero > div:first-child {
+    padding-left: 0;
   }
   .digital-hero-visual,
   .speed-test-panel,
