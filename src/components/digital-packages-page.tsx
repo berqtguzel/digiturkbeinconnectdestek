@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { ApplicationSection } from "@/components/application-section";
@@ -10,12 +10,34 @@ type Props = { mode: "internet" | "neo"; plans: DigitalPlan[] };
 
 export function DigitalPackagesPage({ mode, plans }: Props) {
   const [selected, setSelected] = useState(plans[0].id);
+  const [speed, setSpeed] = useState(0);
   const internet = mode === "internet";
   const groups = [...new Set(plans.map((plan) => plan.category))];
   const choose = (id: string) => {
     setSelected(id);
     document.getElementById(`${mode}-basvuru`)?.scrollIntoView({ behavior: "smooth" });
   };
+
+  useEffect(() => {
+    if (!internet) return;
+    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (reduceMotion) {
+      const reducedMotionFrame = requestAnimationFrame(() => setSpeed(97.16));
+      return () => cancelAnimationFrame(reducedMotionFrame);
+    }
+
+    const duration = 2200;
+    const startedAt = performance.now();
+    let frame = 0;
+    const update = (now: number) => {
+      const progress = Math.min(1, (now - startedAt) / duration);
+      const eased = 1 - Math.pow(1 - progress, 3);
+      setSpeed(97.16 * eased);
+      if (progress < 1) frame = requestAnimationFrame(update);
+    };
+    frame = requestAnimationFrame(update);
+    return () => cancelAnimationFrame(frame);
+  }, [internet]);
 
   return (
     <div className={`digital-page digital-page-${mode}`}>
@@ -53,46 +75,93 @@ export function DigitalPackagesPage({ mode, plans }: Props) {
             Paketleri keşfet <span>↓</span>
           </a>
         </div>
-        <div className="digital-hero-visual" aria-hidden="true">
-          <div className="digital-visual-top">
-            <span>{internet ? "DIGITURK NET" : "NEO PLAYER"}</span>
-            <i />
-            <i />
-            <i />
+        {internet ? (
+          <div
+            className="speed-test-panel"
+            aria-label={`Örnek hız göstergesi: ${speed.toFixed(2)} Mbps`}
+          >
+            <div className="speed-panel-top">
+              <span>
+                <i /> DIGITURK NET
+              </span>
+              <strong>BAĞLANTI İYİ</strong>
+            </div>
+            <div className="speed-meter">
+              <svg viewBox="0 0 240 150" aria-hidden="true">
+                <defs>
+                  <linearGradient id="speed-gradient">
+                    <stop stopColor="#7047ec" />
+                    <stop offset=".55" stopColor="#a044f0" />
+                    <stop offset="1" stopColor="#20d9ed" />
+                  </linearGradient>
+                </defs>
+                <path className="speed-track" d="M30 125 A90 90 0 0 1 210 125" pathLength="100" />
+                <path
+                  className="speed-progress"
+                  d="M30 125 A90 90 0 0 1 210 125"
+                  pathLength="100"
+                />
+                <g className="speed-ticks">
+                  <text x="25" y="143">
+                    0
+                  </text>
+                  <text x="53" y="65">
+                    25
+                  </text>
+                  <text x="113" y="35">
+                    50
+                  </text>
+                  <text x="177" y="65">
+                    75
+                  </text>
+                  <text x="207" y="143">
+                    100
+                  </text>
+                </g>
+                <line className="speed-needle" x1="120" y1="125" x2="120" y2="55" />
+                <circle cx="120" cy="125" r="8" className="speed-hub" />
+              </svg>
+              <div className="speed-value">
+                <strong>{speed.toFixed(2)}</strong>
+                <span>Mbps</span>
+              </div>
+            </div>
+            <div className="speed-stats">
+              <span>
+                <small>PING</small>
+                <strong>6 ms</strong>
+              </span>
+              <span>
+                <small>DOWNLOAD</small>
+                <strong>97.16 Mbps</strong>
+              </span>
+              <span>
+                <small>UPLOAD</small>
+                <strong>18.42 Mbps</strong>
+              </span>
+            </div>
+            <p>Gösterge tasarım amaçlıdır. Adresinizdeki hız altyapıya göre belirlenir.</p>
           </div>
-          <div className="digital-visual-center">
-            <span className="digital-symbol-wrap">
-              <Image
-                src="/digiturk-symbol.png"
-                alt=""
-                width={118}
-                height={118}
-                sizes="118px"
-                className="digital-symbol"
-              />
-            </span>
-            <strong>{internet ? "TV + İnternet" : "NEO"}</strong>
-            <small>{internet ? "AYNI PAKETTE, AYNI EVDE" : "KUTUSUZ DİGİTURK"}</small>
+        ) : (
+          <div className="neo-device-stage" aria-hidden="true">
+            <div className="neo-orbit neo-orbit-one" />
+            <div className="neo-orbit neo-orbit-two" />
+            <div className="neo-tv">
+              <span>SMART TV</span>
+              <Image src="/digiturk-symbol.png" alt="" width={95} height={95} />
+              <strong>NEO</strong>
+            </div>
+            <div className="neo-phone">
+              <span />
+              <Image src="/digiturk-symbol.png" alt="" width={42} height={42} />
+              <small>MOBİL</small>
+            </div>
+            <div className="neo-stage-caption">
+              <span>KUTU YOK · KURULUM YOK</span>
+              <strong>Her ekran sizin.</strong>
+            </div>
           </div>
-          <div className="digital-visual-benefits">
-            <span>
-              <b>{internet ? "35" : "0"}</b>
-              {internet ? "Mbps internet" : "Kurulum"}
-            </span>
-            <span>
-              <b>{internet ? "TV" : "3"}</b>
-              {internet ? "Zengin içerik" : "Ekran desteği"}
-            </span>
-            <span>
-              <b>{internet ? "1" : "∞"}</b>
-              {internet ? "Avantajlı paket" : "Her yerde izle"}
-            </span>
-          </div>
-          <div className="digital-visual-bottom">
-            <span>{internet ? "TV + İNTERNET" : "HER EKRANDA"}</span>
-            <strong>↗</strong>
-          </div>
-        </div>
+        )}
       </section>
       <section id="paketler" className="digital-catalog">
         <div className="digital-heading">
