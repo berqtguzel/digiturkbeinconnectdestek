@@ -99,6 +99,9 @@
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 3px;
+  width: 100%;
+  min-width: 0;
+  text-align: center;
 }
 
 .floating-countdown > span:not(.floating-match-started) {
@@ -110,14 +113,19 @@
 }
 
 .floating-countdown strong {
+  display: grid;
+  place-items: center;
   width: 100%;
-  padding: 7px 2px;
+  height: 32px;
+  padding: 0 2px;
   border: 1px solid rgba(213, 174, 255, 0.12);
   border-radius: 7px;
   background: rgba(7, 2, 21, 0.38);
   font-size: 16px;
+  font-feature-settings: "tnum";
   font-variant-numeric: tabular-nums;
   line-height: 1;
+  text-align: center;
 }
 
 .floating-countdown small {
@@ -216,7 +224,8 @@
   }
 
   .floating-countdown strong {
-    padding: 5px 2px;
+    height: 27px;
+    padding: 0 2px;
     font-size: 14px;
   }
 
