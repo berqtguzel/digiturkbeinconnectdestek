@@ -3,10 +3,11 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "node server.mjs --dev",
-    "dev:next": "next dev",
+    "dev": "next dev",
+    "dev:source": "node server.mjs --dev",
     "build": "next build",
-    "start": "node server.mjs",
+    "start": "next start",
+    "start:source": "node server.mjs",
     "lint": "eslint",
     "format": "prettier --write .",
     "format:check": "prettier --check ."

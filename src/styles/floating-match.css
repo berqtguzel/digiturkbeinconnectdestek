@@ -1,0 +1,239 @@
+.floating-match {
+  position: fixed;
+  z-index: 45;
+  right: 18px;
+  top: 50%;
+  width: 326px;
+  overflow: hidden;
+  isolation: isolate;
+  padding: 15px;
+  border: 1px solid rgba(215, 177, 255, 0.24);
+  border-radius: 18px;
+  color: #fff;
+  background:
+    radial-gradient(circle at 90% 5%, rgba(146, 61, 214, 0.34), transparent 38%),
+    linear-gradient(145deg, rgba(37, 10, 62, 0.97), rgba(22, 8, 47, 0.98));
+  box-shadow:
+    0 22px 55px rgba(9, 2, 20, 0.44),
+    inset 0 1px 0 rgba(255, 255, 255, 0.06);
+  transform: translateY(-50%);
+  backdrop-filter: blur(18px);
+}
+
+.floating-match-glow {
+  position: absolute;
+  z-index: -1;
+  right: -54px;
+  bottom: -70px;
+  width: 170px;
+  height: 170px;
+  border-radius: 50%;
+  background: rgba(133, 48, 226, 0.2);
+  filter: blur(20px);
+}
+
+.floating-match-heading {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 0 2px 11px;
+  border-bottom: 1px solid rgba(225, 199, 255, 0.11);
+  color: #ead9ff;
+  font-size: 9px;
+  font-weight: 750;
+  letter-spacing: 1.15px;
+}
+
+.floating-match-heading small {
+  margin-left: auto;
+  color: #a989c4;
+  font-size: 8px;
+  font-weight: 600;
+  letter-spacing: 0.8px;
+}
+
+.floating-live-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #ef1d59;
+  box-shadow:
+    0 0 0 4px rgba(239, 29, 89, 0.13),
+    0 0 12px rgba(239, 29, 89, 0.8);
+}
+
+.floating-match-content {
+  display: grid;
+  grid-template-columns: 58px 1fr 58px;
+  align-items: center;
+  gap: 7px;
+  padding: 14px 0 13px;
+}
+
+.floating-team {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  text-align: center;
+}
+
+.floating-team img {
+  width: 42px;
+  height: 46px;
+  object-fit: contain;
+  filter: drop-shadow(0 6px 8px rgba(0, 0, 0, 0.32));
+}
+
+.floating-team strong {
+  max-width: 68px;
+  overflow: hidden;
+  font-size: 9px;
+  font-weight: 650;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.floating-countdown {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 3px;
+}
+
+.floating-countdown > span:not(.floating-match-started) {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.floating-countdown strong {
+  width: 100%;
+  padding: 7px 2px;
+  border: 1px solid rgba(213, 174, 255, 0.12);
+  border-radius: 7px;
+  background: rgba(7, 2, 21, 0.38);
+  font-size: 16px;
+  font-variant-numeric: tabular-nums;
+  line-height: 1;
+}
+
+.floating-countdown small {
+  color: #a88ebe;
+  font-size: 6px;
+  font-weight: 650;
+  letter-spacing: 0.5px;
+}
+
+.floating-match-started {
+  grid-column: 1 / -1;
+  color: #f1dfff;
+  font-size: 11px;
+  font-weight: 750;
+  letter-spacing: 1px;
+  text-align: center;
+}
+
+.floating-match-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  min-height: 40px;
+  border-radius: 10px;
+  color: white;
+  background: linear-gradient(100deg, #db1760, #ef2450);
+  box-shadow: 0 9px 22px rgba(230, 25, 82, 0.24);
+  font-size: 11px;
+  font-weight: 750;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  transition:
+    transform 180ms ease,
+    box-shadow 180ms ease;
+}
+
+.floating-match-button span {
+  margin-left: 5px;
+  font-size: 15px;
+}
+
+.floating-match-button:hover {
+  box-shadow: 0 12px 28px rgba(230, 25, 82, 0.34);
+  transform: translateY(-1px);
+}
+
+@media (max-width: 1100px) {
+  .floating-match {
+    right: 12px;
+    width: 294px;
+  }
+
+  .floating-match-content {
+    grid-template-columns: 52px 1fr 52px;
+    gap: 5px;
+  }
+}
+
+@media (max-width: 700px) {
+  .floating-match {
+    right: 10px;
+    top: auto;
+    bottom: 10px;
+    left: 10px;
+    width: auto;
+    padding: 9px 10px;
+    border-radius: 14px;
+    transform: none;
+  }
+
+  .floating-match-heading {
+    display: none;
+  }
+
+  .floating-match-content {
+    grid-template-columns: 38px 1fr 38px;
+    padding: 0;
+  }
+
+  .floating-team {
+    gap: 0;
+  }
+
+  .floating-team img {
+    width: 32px;
+    height: 34px;
+  }
+
+  .floating-team strong {
+    display: none;
+  }
+
+  .floating-countdown {
+    gap: 3px;
+  }
+
+  .floating-countdown strong {
+    padding: 5px 2px;
+    font-size: 14px;
+  }
+
+  .floating-countdown small {
+    font-size: 5px;
+  }
+
+  .floating-match-button {
+    min-height: 32px;
+    margin-top: 7px;
+    border-radius: 8px;
+    font-size: 9px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .floating-match-button {
+    transition: none;
+  }
+}
