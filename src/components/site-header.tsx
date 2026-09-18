@@ -14,7 +14,7 @@ const links = [
   ["TV + İnternet", "/tv-internet-paketleri"],
   ["Hakkımızda", `${base}/hakkimizda/`],
   ["İletişim", `${base}/iletisim/`],
-  ["SSS", "/#faq"],
+  ["SSS", "/sikca-sorulan-sorular"],
 ];
 function Arrow() {
   return (

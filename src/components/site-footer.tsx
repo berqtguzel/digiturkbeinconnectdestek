@@ -15,7 +15,7 @@ const columns = [
   {
     title: "YANINIZDAYIZ",
     links: [
-      ["Sıkça sorulan sorular", "/#faq"],
+      ["Sıkça sorulan sorular", "/sikca-sorulan-sorular"],
       ["Başvuru yapın", `${base}/basvuru`],
       ["İletişim", `${base}/iletisim/`],
       ["Hakkımızda", `${base}/hakkimizda/`],
