@@ -81,8 +81,9 @@ export function DigitalPackagesPage({ mode, plans }: Props) {
             aria-label={`Örnek hız göstergesi: ${speed.toFixed(2)} Mbps`}
           >
             <div className="speed-panel-top">
-              <span>
-                <i /> DIGITURK NET
+              <span className="speed-brand">
+                <Image src="/digiturk-symbol.png" alt="" width={24} height={24} sizes="24px" />
+                <span>DIGITURK NET</span>
               </span>
               <strong>BAĞLANTI İYİ</strong>
             </div>

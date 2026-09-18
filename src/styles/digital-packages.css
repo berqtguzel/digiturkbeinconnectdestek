@@ -210,17 +210,19 @@
   font-size: 8px;
   letter-spacing: 1.2px;
 }
-.speed-panel-top span {
+.speed-panel-top .speed-brand {
   display: flex;
   align-items: center;
-  gap: 7px;
+  gap: 9px;
 }
-.speed-panel-top i {
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background: #23d9ed;
-  box-shadow: 0 0 12px #23d9ed;
+.speed-brand img {
+  width: 22px;
+  height: 22px;
+  object-fit: contain;
+  filter: drop-shadow(0 5px 7px #0007);
+}
+.speed-brand > span {
+  color: #b7c0e9;
 }
 .speed-panel-top strong {
   color: #6de5ca;
@@ -273,17 +275,22 @@
 }
 .speed-value {
   position: absolute;
+  top: 55%;
   left: 50%;
-  bottom: 11px;
   display: flex;
+  min-width: 130px;
   flex-direction: column;
-  transform: translateX(-50%);
+  align-items: center;
+  justify-content: center;
+  transform: translate(-50%, -50%);
   text-align: center;
 }
 .speed-value strong {
+  width: 100%;
   font-size: 35px;
   letter-spacing: -2px;
   line-height: 1;
+  text-align: center;
 }
 .speed-value span {
   margin-top: 5px;
