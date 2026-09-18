@@ -20,6 +20,68 @@
     inset 0 1px 0 rgba(255, 255, 255, 0.06);
   transform: translateY(-50%);
   backdrop-filter: blur(18px);
+  transition:
+    width 220ms ease,
+    padding 220ms ease,
+    border-radius 220ms ease;
+}
+
+.floating-match-toggle {
+  position: absolute;
+  z-index: 5;
+  right: 10px;
+  top: 9px;
+  display: grid;
+  width: 25px;
+  height: 25px;
+  padding: 0;
+  place-items: center;
+  border: 1px solid rgba(225, 199, 255, 0.18);
+  border-radius: 50%;
+  color: #d8bfea;
+  background: rgba(13, 4, 25, 0.5);
+  cursor: pointer;
+  font: inherit;
+  transition: background 180ms ease, color 180ms ease;
+}
+
+.floating-match-toggle:hover {
+  color: #fff;
+  background: rgba(126, 61, 171, 0.42);
+}
+
+.floating-match-toggle span {
+  font-size: 17px;
+  line-height: 1;
+}
+
+.floating-match.is-collapsed {
+  width: 74px;
+  height: 38px;
+  padding: 0;
+  border-radius: 999px;
+}
+
+.floating-match.is-collapsed .floating-match-toggle {
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  background: transparent;
+}
+
+.floating-match.is-collapsed .floating-match-toggle span {
+  color: #ead9ff;
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 1.4px;
+}
+
+.floating-match.is-collapsed .floating-match-heading,
+.floating-match.is-collapsed .floating-match-content,
+.floating-match.is-collapsed .floating-match-button,
+.floating-match.is-collapsed .floating-match-glow {
+  display: none;
 }
 
 .floating-match-glow {
@@ -38,7 +100,7 @@
   display: flex;
   align-items: center;
   gap: 7px;
-  padding: 0 2px 11px;
+  padding: 0 32px 11px 2px;
   border-bottom: 1px solid rgba(225, 199, 255, 0.11);
   color: #ead9ff;
   font-size: 9px;
@@ -195,6 +257,13 @@ body:has(.digital-page) .floating-match {
   transform: none;
 }
 
+body:has(.digital-page) .floating-match.is-collapsed {
+  width: 74px;
+  height: 38px;
+  padding: 0;
+  border-radius: 999px;
+}
+
 @media (max-width: 700px) {
   .floating-match {
     right: 10px;
@@ -209,6 +278,23 @@ body:has(.digital-page) .floating-match {
 
   .floating-match-heading {
     display: none;
+  }
+
+  .floating-match-toggle {
+    right: 7px;
+    top: 7px;
+  }
+
+  .floating-match:not(.is-collapsed) .floating-match-content {
+    padding-right: 28px;
+  }
+
+  .floating-match.is-collapsed {
+    right: 10px;
+    bottom: 10px;
+    left: auto;
+    width: 70px;
+    height: 38px;
   }
 
   .floating-match-content {
@@ -252,7 +338,9 @@ body:has(.digital-page) .floating-match {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .floating-match-button {
+  .floating-match,
+  .floating-match-button,
+  .floating-match-toggle {
     transition: none;
   }
 }

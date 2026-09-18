@@ -174,23 +174,21 @@
 }
 .footer-bottom {
   border-top: 1px solid #b893d61c;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 35px;
   padding: 22px 0 28px;
 }
-.footer-bottom p {
+.footer-legal {
+  display: grid;
+  gap: 10px;
+}
+.footer-legal p {
   margin: 0;
-  max-width: 740px;
+  max-width: 1080px;
   color: #94809f;
   font-size: 9px;
   line-height: 1.9;
 }
-.footer-bottom > span {
-  color: #a38ab6;
-  font-size: 9px;
-  white-space: nowrap;
+.footer-legal p:last-child {
+  color: #aa91bb;
 }
 @media (max-width: 1199px) {
   .faq-section {

@@ -3,26 +3,27 @@
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { ApplicationSection } from "@/components/application-section";
 import type { DigitalPlan } from "@/data/digital-plans";
 
 type Props = { mode: "internet" | "neo"; plans: DigitalPlan[] };
 
 export function DigitalPackagesPage({ mode, plans }: Props) {
+  const router = useRouter();
   const [selected, setSelected] = useState(plans[0].id);
   const [speed, setSpeed] = useState(0);
   const internet = mode === "internet";
   const groups = [...new Set(plans.map((plan) => plan.category))];
   const choose = (id: string) => {
-    setSelected(id);
-    document.getElementById(`${mode}-basvuru`)?.scrollIntoView({ behavior: "smooth" });
+    router.push(`/iletisim?plan=${encodeURIComponent(id)}#iletisim-basvuru`);
   };
 
   useEffect(() => {
     if (!internet) return;
     const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     if (reduceMotion) {
-      const reducedMotionFrame = requestAnimationFrame(() => setSpeed(97.16));
+      const reducedMotionFrame = requestAnimationFrame(() => setSpeed(971.6));
       return () => cancelAnimationFrame(reducedMotionFrame);
     }
 
@@ -32,7 +33,7 @@ export function DigitalPackagesPage({ mode, plans }: Props) {
     const update = (now: number) => {
       const progress = Math.min(1, (now - startedAt) / duration);
       const eased = 1 - Math.pow(1 - progress, 3);
-      setSpeed(97.16 * eased);
+      setSpeed(971.6 * eased);
       if (progress < 1) frame = requestAnimationFrame(update);
     };
     frame = requestAnimationFrame(update);
@@ -106,17 +107,8 @@ export function DigitalPackagesPage({ mode, plans }: Props) {
                   <text x="25" y="143">
                     0
                   </text>
-                  <text x="53" y="65">
-                    25
-                  </text>
-                  <text x="113" y="35">
-                    50
-                  </text>
-                  <text x="177" y="65">
-                    75
-                  </text>
                   <text x="207" y="143">
-                    100
+                    1000
                   </text>
                 </g>
                 <line className="speed-needle" x1="120" y1="125" x2="120" y2="55" />
@@ -134,7 +126,7 @@ export function DigitalPackagesPage({ mode, plans }: Props) {
               </span>
               <span>
                 <small>DOWNLOAD</small>
-                <strong>97.16 Mbps</strong>
+                <strong>971.60 Mbps</strong>
               </span>
               <span>
                 <small>UPLOAD</small>
@@ -145,21 +137,51 @@ export function DigitalPackagesPage({ mode, plans }: Props) {
           </div>
         ) : (
           <div className="neo-device-stage" aria-hidden="true">
-            <div className="neo-orbit neo-orbit-one" />
-            <div className="neo-orbit neo-orbit-two" />
+            <div className="neo-stage-glow" />
+            <div className="neo-stage-topline">
+              <span className="neo-stage-brand">
+                <Image src="/digiturk-symbol.png" alt="" width={22} height={22} />
+                DIGITURK NEO
+              </span>
+              <span className="neo-live-pill">● CANLI</span>
+            </div>
+            <div className="neo-float-tag neo-float-tag-one">KUTU YOK</div>
+            <div className="neo-float-tag neo-float-tag-two">HER YERDE</div>
             <div className="neo-tv">
-              <span>SMART TV</span>
-              <Image src="/digiturk-symbol.png" alt="" width={95} height={95} />
-              <strong>NEO</strong>
+              <div className="neo-screen neo-screen-sport">
+                <span>CANLI SPOR</span>
+                <Image src="/digiturk-symbol.png" alt="" width={62} height={62} />
+                <strong>Heyecan büyük ekranda</strong>
+              </div>
+              <i />
+              <b />
+            </div>
+            <div className="neo-laptop">
+              <div className="neo-screen neo-screen-film">
+                <small>FİLM &amp; DİZİ</small>
+                <strong>İstediğin zaman izle</strong>
+                <span>▶</span>
+              </div>
+              <i />
+            </div>
+            <div className="neo-tablet">
+              <div className="neo-screen neo-screen-live">
+                <span>ŞİMDİ YAYINDA</span>
+                <strong>CANLI TV</strong>
+                <small>Tek dokunuşla</small>
+              </div>
             </div>
             <div className="neo-phone">
               <span />
-              <Image src="/digiturk-symbol.png" alt="" width={42} height={42} />
-              <small>MOBİL</small>
+              <div className="neo-phone-screen">
+                <Image src="/digiturk-symbol.png" alt="" width={34} height={34} />
+                <strong>NEO</strong>
+                <small>CEBİNDE</small>
+              </div>
             </div>
             <div className="neo-stage-caption">
-              <span>KUTU YOK · KURULUM YOK</span>
-              <strong>Her ekran sizin.</strong>
+              <span>KUTUSUZ · KURULUMSUZ</span>
+              <strong>Her ekran senin ekranın.</strong>
             </div>
           </div>
         )}

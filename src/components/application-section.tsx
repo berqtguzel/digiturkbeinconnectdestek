@@ -18,7 +18,14 @@ export function ApplicationSection({
   id = "basvuru",
 }: ApplicationSectionProps) {
   const [city, setCity] = useState("");
-  const [planId, setPlanId] = useState(defaultPlanId ?? plans[0].id);
+  const [planId, setPlanId] = useState(
+    defaultPlanId && plans.some((item) => item.id === defaultPlanId)
+      ? defaultPlanId
+      : plans[0].id,
+  );
+  const [name, setName] = useState("");
+  const [phone, setPhone] = useState("");
+  const [submitted, setSubmitted] = useState(false);
   const plan = plans.find((item) => item.id === planId) ?? plans[0];
 
   return (
@@ -31,8 +38,8 @@ export function ApplicationSection({
           <span>gerisini birlikte tamamlayalım.</span>
         </h2>
         <p>
-          İlinizi ve paketinizi belirleyin. Güncel kampanya koşullarını incelemek ve iletişim
-          bilgilerinizi güvenli başvuru sayfasında paylaşmak için devam edin.
+          İletişim bilgilerinizi, ilinizi ve ilgilendiğiniz paketi paylaşın. Başvuru ekibimiz paket
+          uygunluğu ve güncel kampanya detayları için sizinle iletişime geçsin.
         </p>
         <ul>
           <li>
@@ -42,7 +49,7 @@ export function ApplicationSection({
             <span>✓</span> İlinize uygun kampanya kontrolü
           </li>
           <li>
-            <span>✓</span> Kişisel bilgiler bu sitede alınmaz
+            <span>✓</span> Size uygun paket için geri dönüş
           </li>
         </ul>
         <a href="tel:08503467373">
@@ -53,37 +60,67 @@ export function ApplicationSection({
         className="shared-application-form"
         onSubmit={(event) => {
           event.preventDefault();
-          window.location.assign("https://ligtv-beinconnect.com.tr/basvuru");
+          setSubmitted(true);
         }}
       >
         <div className="application-form-top">
-          <span>PAKET SEÇİMİ</span>
-          <small>01 / 02</small>
+          <span>İLETİŞİM FORMU</span>
+          <small>YENİ ABONELİK</small>
         </div>
-        <label htmlFor={`${id}-city`}>İl</label>
-        <select
-          id={`${id}-city`}
-          required
-          value={city}
-          onChange={(event) => setCity(event.target.value)}
-        >
-          <option value="">İlinizi seçin</option>
-          {cities.map((item) => (
-            <option key={item}>{item}</option>
-          ))}
-        </select>
-        <label htmlFor={`${id}-plan`}>Paket</label>
-        <select
-          id={`${id}-plan`}
-          value={planId}
-          onChange={(event) => setPlanId(event.target.value)}
-        >
-          {plans.map((item) => (
-            <option key={item.id} value={item.id}>
-              {item.name} — {item.price} TL/ay
-            </option>
-          ))}
-        </select>
+        <div className="application-fields">
+          <div>
+            <label htmlFor={`${id}-name`}>Ad soyad</label>
+            <input
+              id={`${id}-name`}
+              autoComplete="name"
+              required
+              placeholder="Adınız ve soyadınız"
+              value={name}
+              onChange={(event) => setName(event.target.value)}
+            />
+          </div>
+          <div>
+            <label htmlFor={`${id}-phone`}>Telefon</label>
+            <input
+              id={`${id}-phone`}
+              type="tel"
+              inputMode="tel"
+              autoComplete="tel"
+              required
+              placeholder="05__ ___ __ __"
+              value={phone}
+              onChange={(event) => setPhone(event.target.value)}
+            />
+          </div>
+          <div>
+            <label htmlFor={`${id}-city`}>İl</label>
+            <select
+              id={`${id}-city`}
+              required
+              value={city}
+              onChange={(event) => setCity(event.target.value)}
+            >
+              <option value="">İlinizi seçin</option>
+              {cities.map((item) => (
+                <option key={item}>{item}</option>
+              ))}
+            </select>
+          </div>
+          <div>
+            <label htmlFor={`${id}-plan`}>Paket</label>
+            <select
+              id={`${id}-plan`}
+              value={planId}
+              onChange={(event) => setPlanId(event.target.value)}
+            >
+              {plans.map((item) => (
+                <option key={item.id} value={item.id}>
+                  {item.name} — {item.price} TL/ay
+                </option>
+              ))}
+            </select>
+          </div>
+        </div>
         <div className="application-selected">
           <span>
             <small>Seçiminiz</small>
@@ -95,9 +132,15 @@ export function ApplicationSection({
           </strong>
         </div>
         <button type="submit">
-          Başvuru sayfasına devam et <span>↗</span>
+          İletişim talebi oluştur <span>→</span>
         </button>
-        <p>Başvuru tamamlanmış sayılmaz; bilgileriniz yönlendirildiğiniz sayfada alınır.</p>
+        {submitted ? (
+          <p className="application-success" role="status">
+            Demo talebiniz hazırlandı. Bu form herhangi bir sunucuya veri göndermez.
+          </p>
+        ) : (
+          <p>Bilgileriniz yalnızca yeni abonelik talebiniz için kullanılır.</p>
+        )}
       </form>
     </section>
   );

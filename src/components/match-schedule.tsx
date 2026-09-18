@@ -106,36 +106,6 @@ function Countdown({ kickoff }: { kickoff: string }) {
   );
 }
 
-function saveCalendar(match: Match) {
-  const stamp = (date: Date) =>
-    date
-      .toISOString()
-      .replace(/[-:]/g, "")
-      .replace(/\.\d{3}Z$/, "Z");
-  const start = new Date(match.kickoff);
-  const content = [
-    "BEGIN:VCALENDAR",
-    "VERSION:2.0",
-    "PRODID:-//Digiturk Tasarim//Mac Takvimi//TR",
-    "BEGIN:VEVENT",
-    `UID:${match.id}-${stamp(start)}@digiturk-demo.local`,
-    `DTSTAMP:${stamp(new Date())}`,
-    `DTSTART:${stamp(start)}`,
-    `DTEND:${stamp(new Date(start.getTime() + 2 * 3600000))}`,
-    `SUMMARY:${match.home.name} - ${match.away.name} (Örnek program)`,
-    "DESCRIPTION:Tasarım amaçlı örnek maç programı. Resmi fikstürden tarihi doğrulayın.",
-    "END:VEVENT",
-    "END:VCALENDAR",
-    "",
-  ].join("\r\n");
-  const url = URL.createObjectURL(new Blob([content], { type: "text/calendar;charset=utf-8" }));
-  const link = document.createElement("a");
-  link.href = url;
-  link.download = `${match.id}.ics`;
-  link.click();
-  window.setTimeout(() => URL.revokeObjectURL(url), 1000);
-}
-
 export function MatchSchedule() {
   const featured = matches[0];
   return (
@@ -150,8 +120,8 @@ export function MatchSchedule() {
           </h2>
           <p>Tribünün heyecanını evine taşı. Büyük karşılaşmalara yerini ayır.</p>
         </div>
-        <a className="fixture-link" href="https://beinsports.com.tr/mac-merkezi">
-          Maç merkezine git
+        <a className="fixture-link" href="/iletisim#iletisim-basvuru">
+          Paket danışmanına ulaş
           <Icon kind="arrow" />
         </a>
       </div>
@@ -185,27 +155,15 @@ export function MatchSchedule() {
             <Countdown kickoff={featured.kickoff} />
           </div>
           <div className="featured-match-actions">
-            <a className="match-watch" href="https://ligtv-beinconnect.com.tr/paketlerimiz">
+            <a className="match-watch" href="/iletisim#iletisim-basvuru">
               <Icon kind="play" />
               İzleme paketlerini keşfet
               <Icon kind="arrow" />
             </a>
-            <button
-              type="button"
-              className="calendar-button"
-              onClick={() => saveCalendar(featured)}
-              aria-label="Trabzonspor Galatasaray maçını takvime ekle"
-            >
-              <Icon kind="calendar" />
-              <span>Takvime ekle</span>
-            </button>
           </div>
           <div className="featured-match-bottom">
             <Icon kind="screen" />
             <span>Telefon, tablet ve Smart TV’de maç keyfi</span>
-            <span className="match-platform">
-              beIN <b>CONNECT</b>
-            </span>
           </div>
         </article>
         <div className="upcoming-matches">
@@ -232,29 +190,14 @@ export function MatchSchedule() {
                 <Team team={match.away} />
               </div>
               <div className="upcoming-match-bottom">
-                <a href="https://ligtv-beinconnect.com.tr/paketlerimiz">
+                <a href="/iletisim#iletisim-basvuru">
                   İzleme paketleri
                   <Icon kind="arrow" />
                 </a>
-                <button
-                  type="button"
-                  className="calendar-button"
-                  onClick={() => saveCalendar(match)}
-                  aria-label={`${match.home.name} ${match.away.name} maçını takvime ekle`}
-                >
-                  <Icon kind="calendar" />
-                </button>
               </div>
             </article>
           ))}
         </div>
-      </div>
-      <div className="matches-note">
-        <span>ÖRNEK PROGRAM</span>
-        <p>
-          Görseldeki eşleşmelerle hazırlanmıştır; canlı fikstür değildir. Saatler Türkiye saatidir.
-          Güncel programı maç merkezinden kontrol edebilirsiniz.
-        </p>
       </div>
     </section>
   );

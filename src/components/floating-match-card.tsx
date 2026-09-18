@@ -13,6 +13,7 @@ function getRemaining(kickoff: string) {
 export function FloatingMatchCard() {
   const match = matches[0];
   const [remaining, setRemaining] = useState<number | null>(null);
+  const [isOpen, setIsOpen] = useState(true);
 
   useEffect(() => {
     const update = () => setRemaining(getRemaining(match.kickoff));
@@ -33,7 +34,19 @@ export function FloatingMatchCard() {
         ];
 
   return (
-    <aside className="floating-match" aria-label="Yaklaşan büyük maç">
+    <aside
+      className={`floating-match${isOpen ? "" : " is-collapsed"}`}
+      aria-label="Yaklaşan büyük maç"
+    >
+      <button
+        className="floating-match-toggle"
+        type="button"
+        aria-expanded={isOpen}
+        aria-label={isOpen ? "Maç kartını kapat" : "Maç kartını aç"}
+        onClick={() => setIsOpen((current) => !current)}
+      >
+        <span aria-hidden="true">{isOpen ? "×" : "MAÇ"}</span>
+      </button>
       <span className="floating-match-glow" aria-hidden="true" />
       <div className="floating-match-heading">
         <span className="floating-live-dot" aria-hidden="true" />
@@ -66,7 +79,7 @@ export function FloatingMatchCard() {
         </div>
       </div>
 
-      <a className="floating-match-button" href="https://ligtv-beinconnect.com.tr/paketlerimiz">
+      <a className="floating-match-button" href="/iletisim#iletisim-basvuru">
         <svg width="13" height="13" viewBox="0 0 24 24" aria-hidden="true">
           <path d="m8 5 11 7-11 7V5Z" fill="currentColor" />
         </svg>

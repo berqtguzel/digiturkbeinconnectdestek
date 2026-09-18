@@ -3,6 +3,7 @@ import { ApplicationSection } from "@/components/application-section";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 import { internetPlans, neoPlans } from "@/data/digital-plans";
+import { tvPlans } from "@/data/tv-plans";
 
 export const metadata: Metadata = {
   title: "İletişim",
@@ -10,9 +11,24 @@ export const metadata: Metadata = {
   alternates: { canonical: "/iletisim" },
 };
 
-const contactPlans = [...neoPlans, ...internetPlans];
+const contactPlans = [
+  ...tvPlans.map((plan) => ({
+    id: plan.id,
+    name: `${plan.name} · ${plan.subtitle}`,
+    category: `TV · ${plan.group}`,
+    price: plan.price,
+    note: "Uydu paketi",
+    badge: plan.badge,
+    features: plan.features,
+  })),
+  ...neoPlans,
+  ...internetPlans,
+];
 
-export default function ContactPage() {
+export default async function ContactPage({ searchParams }: PageProps<"/iletisim">) {
+  const params = await searchParams;
+  const requestedPlan = typeof params.plan === "string" ? params.plan : undefined;
+
   return (
     <>
       <SiteHeader />
@@ -58,7 +74,11 @@ export default function ContactPage() {
             <span className="contact-note">RESMİ DESTEK KANALI GEREKİR</span>
           </article>
         </section>
-        <ApplicationSection plans={contactPlans} id="iletisim-basvuru" />
+        <ApplicationSection
+          plans={contactPlans}
+          defaultPlanId={requestedPlan}
+          id="iletisim-basvuru"
+        />
       </main>
       <SiteFooter />
     </>

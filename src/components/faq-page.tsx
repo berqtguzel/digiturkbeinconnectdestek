@@ -112,7 +112,7 @@ export function FaqPage() {
           <h2>Birlikte çözelim.</h2>
           <p>Yeni abonelik ve paket seçimi için başvuru hattından destek alın.</p>
         </div>
-        <a href="https://ligtv-beinconnect.com.tr/basvuru">
+        <a href="/iletisim#iletisim-basvuru">
           Hemen başvur <span>↗</span>
         </a>
         <a href="tel:08503467373">

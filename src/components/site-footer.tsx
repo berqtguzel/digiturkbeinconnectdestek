@@ -1,7 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
 
-const base = "https://ligtv-beinconnect.com.tr";
 const columns = [
   {
     title: "KEŞFEDİN",
@@ -16,7 +15,7 @@ const columns = [
     title: "YANINIZDAYIZ",
     links: [
       ["Sıkça sorulan sorular", "/sikca-sorulan-sorular"],
-      ["Başvuru yapın", `${base}/basvuru`],
+      ["Başvuru yapın", "/iletisim#iletisim-basvuru"],
       ["İletişim", "/iletisim"],
     ],
   },
@@ -38,7 +37,7 @@ export function SiteFooter() {
             <p>Sporun heyecanı, sinemanın büyüsü, evinizin konforunda.</p>
           </div>
           <div className="footer-invitation-actions">
-            <a className="footer-apply" href={`${base}/basvuru`}>
+            <a className="footer-apply" href="/iletisim#iletisim-basvuru">
               Size uygun paketi bulalım<span aria-hidden="true">↗</span>
             </a>
             <a className="footer-call" href="tel:08503467373">
@@ -90,11 +89,18 @@ export function SiteFooter() {
           </div>
         </div>
         <div className="footer-bottom">
-          <p>
-            Bu site Digiturk’ün resmi web sitesi değildir. Marka ve logolar ilgili hak sahiplerine
-            aittir. Paket kapsamı ve ücretler kampanya koşullarına göre değişebilir.
-          </p>
-          <span>© {new Date().getFullYear()} · Tüm hakları saklıdır.</span>
+          <div className="footer-legal">
+            <p>
+              Digiturk A.Ş.&apos;nin resmi web sitesi değil; yetkili bir bayi ve alternatif satış
+              kanalıdır. Yalnızca yeni abonelik işlemleri yapılmaktadır. Bu sitede yer alan tüm
+              ticari markaların isim hakları markaların ticari sahiplerine aittir.
+            </p>
+            <p>
+              © 2026 DENGE CENTER TEKNOLOJİ İLETİŞİM BİLGİSAYAR GIDA İNŞAAT SANAYİ VE TİCARET
+              LİMİTED ŞİRKETİ · MERSİS: 0291154456700001 · Kale Mahallesi, Emin Erişingil Bulvarı,
+              Üçler Apartmanı No:2/D, Merkez / Niğde
+            </p>
+          </div>
         </div>
       </div>
     </footer>

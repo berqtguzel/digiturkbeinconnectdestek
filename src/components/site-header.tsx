@@ -5,8 +5,6 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 
-// Replace these destinations as local pages are added.
-const base = "https://ligtv-beinconnect.com.tr";
 const links = [
   ["Anasayfa", "/"],
   ["TV Paketleri", "/digiturk-tv-paketleri"],
@@ -122,7 +120,7 @@ export function SiteHeader() {
             </span>
           </a>
           <span className="action-divider" aria-hidden="true" />
-          <a className="buy-button" href={`${base}/basvuru`}>
+          <a className="buy-button" href="/iletisim#iletisim-basvuru">
             Satın al ve izle
             <Arrow />
           </a>

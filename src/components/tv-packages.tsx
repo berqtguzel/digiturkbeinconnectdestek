@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { useRef, useState } from "react";
 import { PackageDialog } from "@/components/tv-packages/package-dialog";
 import { PlanCard } from "@/components/tv-packages/plan-card";
@@ -12,6 +13,7 @@ import { regions } from "@/data/tv-packages";
 const cities = regions.flatMap((region) => region.cities).sort((a, b) => a.localeCompare(b, "tr"));
 
 export function TvPackages() {
+  const router = useRouter();
   const [filter, setFilter] = useState("Tümü");
   const [city, setCity] = useState("");
   const [selected, setSelected] = useState("super");
@@ -30,13 +32,8 @@ export function TvPackages() {
     if (nextRegion) setSelected(tvPlans.find((item) => item.region === nextRegion.id)!.id);
   }
   function choose(id: string) {
-    setSelected(id);
     dialog.current?.close();
-    document.getElementById("tv-basvuru")?.scrollIntoView({
-      behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches
-        ? "instant"
-        : "smooth",
-    });
+    router.push(`/iletisim?plan=${encodeURIComponent(id)}#iletisim-basvuru`);
   }
 
   return (
@@ -216,7 +213,7 @@ export function TvPackages() {
             ediyorsanız kutusuz paketleri inceleyebilirsiniz. Cihaz ve içerik kapsamı pakete göre
             değişir.
           </p>
-          <a href="https://ligtv-beinconnect.com.tr/paketlerimiz">
+          <a href="/neo-paketleri">
             Kutusuz seçenekleri keşfedin <span aria-hidden="true">↗</span>
           </a>
         </article>
@@ -254,9 +251,7 @@ export function TvPackages() {
           onSubmit={(event) => {
             event.preventDefault();
             if (!mismatch)
-              window.location.assign(
-                `https://ligtv-beinconnect.com.tr/basvuru${plan.code ? `?campaignCode=${plan.code}` : ""}`,
-              );
+              router.push(`/iletisim?plan=${encodeURIComponent(plan.id)}#iletisim-basvuru`);
           }}
         >
           <span className="section-eyebrow">PAKET SEÇİMİNİZ</span>
@@ -301,12 +296,10 @@ export function TvPackages() {
             </p>
           )}
           <button type="submit" className="tv-primary" disabled={mismatch}>
-            Başvuru sayfasına devam et <span aria-hidden="true">↗</span>
+            İletişim formuna devam et <span aria-hidden="true">→</span>
           </button>
           <p className="tv-form-note">
-            Referans sitenin başvuru sayfasına yönlendirilirsiniz. Burada kişisel bilgi alınmaz;
-            başvurunuz henüz gönderilmez.
-            {!plan.code && " Paket tercihinizi açılan sayfada tekrar belirtin."}
+            Seçiminiz iletişim formuna aktarılır; başka bir siteye yönlendirilmezsiniz.
           </p>
         </form>
       </section>

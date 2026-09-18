@@ -177,9 +177,9 @@ export function SatellitePackages() {
                   için kampanya koşullarını inceleyin.
                 </p>
                 <a
-                  href={`https://ligtv-beinconnect.com.tr/paketlerimiz/${pack.code.toLowerCase()}`}
+                  href={`/iletisim?plan=${pack.region === 3 ? "super" : pack.region === 2 ? "koi" : "national"}#iletisim-basvuru`}
                 >
-                  Tüm kampanya koşulları
+                  Kampanya için bilgi alın
                   <Arrow />
                 </a>
               </div>
@@ -187,7 +187,7 @@ export function SatellitePackages() {
             <div className="package-card-bottom">
               <a
                 className="package-buy"
-                href={`https://ligtv-beinconnect.com.tr/basvuru?campaignCode=${pack.code}`}
+                href={`/iletisim?plan=${pack.region === 3 ? "super" : pack.region === 2 ? "koi" : "national"}#iletisim-basvuru`}
                 aria-label={`${pack.region}. bölge Yıldız Dolu paketine başvur`}
               >
                 Paketi seç, izlemeye başla
@@ -203,7 +203,7 @@ export function SatellitePackages() {
           Fiyatlar bölgenize göre değişir. Detaylardan ilinizin bulunduğu bölgeyi kontrol
           edebilirsiniz.
         </p>
-        <a href="https://ligtv-beinconnect.com.tr/paketlerimiz">
+        <a href="/iletisim#iletisim-basvuru">
           Tüm paketleri keşfet
           <Arrow />
         </a>
