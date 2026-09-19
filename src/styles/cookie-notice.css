@@ -1,0 +1,93 @@
+.cookie-notice {
+  position: fixed;
+  z-index: 80;
+  left: 18px;
+  bottom: 18px;
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 15px;
+  width: min(680px, calc(100vw - 36px));
+  padding: 16px;
+  border: 1px solid #d7b1ff3d;
+  border-radius: 16px;
+  color: #f8f2ff;
+  background: linear-gradient(145deg, #281538f7, #170c23fa);
+  box-shadow: 0 22px 60px #08020f80;
+  backdrop-filter: blur(20px);
+  animation: cookie-notice-in 320ms ease-out;
+}
+.cookie-notice-icon {
+  display: grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  border: 1px solid #d8b5fb36;
+  border-radius: 12px;
+  color: #d6b5f5;
+  background: #a65de716;
+}
+.cookie-notice-icon svg { width: 21px; height: 21px; }
+.cookie-notice-copy { min-width: 0; }
+.cookie-notice-copy strong {
+  display: block;
+  margin-bottom: 5px;
+  font-size: 12px;
+  font-weight: 650;
+}
+.cookie-notice-copy p {
+  margin: 0;
+  color: #b9a5c7;
+  font-size: 10px;
+  line-height: 1.55;
+}
+.cookie-notice-actions {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+.cookie-notice-actions button {
+  min-height: 38px;
+  padding: 0 15px;
+  border-radius: 8px;
+  font: inherit;
+  font-size: 10px;
+  font-weight: 650;
+  cursor: pointer;
+  transition: background 180ms ease, border-color 180ms ease, color 180ms ease;
+}
+.cookie-reject {
+  border: 1px solid #d5b3f52e;
+  color: #c6b0d5;
+  background: transparent;
+}
+.cookie-reject:hover { border-color: #d5b3f568; color: #fff; }
+.cookie-accept {
+  border: 1px solid #d8b8fa4d;
+  color: #fff;
+  background: #8744dc;
+}
+.cookie-accept:hover { background: #9956e8; }
+
+@keyframes cookie-notice-in {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 700px) {
+  .cookie-notice {
+    left: 12px;
+    bottom: 12px;
+    grid-template-columns: auto minmax(0, 1fr);
+    width: calc(100vw - 24px);
+    padding: 14px;
+  }
+  .cookie-notice-actions {
+    grid-column: 1 / -1;
+  }
+  .cookie-notice-actions button { flex: 1; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .cookie-notice { animation: none; }
+  .cookie-notice-actions button { transition: none; }
+}

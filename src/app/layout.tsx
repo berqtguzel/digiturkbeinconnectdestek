@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { CookieNotice } from "@/components/cookie-notice";
 import { FloatingMatchCard } from "@/components/floating-match-card";
 import { absoluteUrl, serializeJsonLd, siteConfig } from "@/lib/site";
 import "./globals.css";
@@ -85,6 +86,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         />
         {children}
         <FloatingMatchCard />
+        <CookieNotice />
       </body>
     </html>
   );
