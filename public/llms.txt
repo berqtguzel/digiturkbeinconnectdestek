@@ -1,0 +1,27 @@
+# Digiturk Paketleri
+
+> Türkiye genelinde Digiturk TV, Digiturk NEO ve TV + internet paketlerini tanıtan, karşılaştıran ve yeni abonelik başvurusu alan yetkili bayi sitesidir.
+
+Bu web sitesi Digiturk A.Ş.'nin resmi web sitesi değildir. DENGE CENTER TEKNOLOJİ İLETİŞİM BİLGİSAYAR GIDA İNŞAAT SANAYİ VE TİCARET LİMİTED ŞİRKETİ tarafından işletilen alternatif satış kanalıdır. Yalnızca yeni abonelik işlemleri yapılır. Mevcut abonelik, fatura, iptal ve teknik destek işlemleri Digiturk'ün resmi kanallarından yürütülmelidir.
+
+## Temel sayfalar
+
+- [Ana sayfa](https://digiturkbeinconnectdestek.vercel.app/): Kampanyalar, öne çıkan paketler, maç programı ve sık sorulan sorular.
+- [Digiturk TV paketleri](https://digiturkbeinconnectdestek.vercel.app/digiturk-tv-paketleri): Uydu üzerinden sunulan TV paketleri.
+- [Digiturk NEO paketleri](https://digiturkbeinconnectdestek.vercel.app/neo-paketleri): Kutu ve uydu kurulumu olmadan desteklenen cihazlardan izlenebilen dijital paketler.
+- [TV + internet paketleri](https://digiturkbeinconnectdestek.vercel.app/tv-internet-paketleri): İnternet ve televizyon hizmetini birleştiren paketler.
+- [Sıkça sorulan sorular](https://digiturkbeinconnectdestek.vercel.app/sikca-sorulan-sorular): Başvuru, kurulum, NEO, internet ve ödeme konuları.
+- [İletişim ve yeni abonelik](https://digiturkbeinconnectdestek.vercel.app/iletisim): Paket ve il seçimiyle yeni abonelik talebi oluşturma.
+
+## Doğrulanmış işletme bilgileri
+
+- Ticari unvan: DENGE CENTER TEKNOLOJİ İLETİŞİM BİLGİSAYAR GIDA İNŞAAT SANAYİ VE TİCARET LİMİTED ŞİRKETİ
+- MERSİS: 0291154456700001
+- Telefon: 0850 346 73 73
+- Adres: Kale Mahallesi, Emin Erişingil Bulvarı, Üçler Apartmanı No:2/D, Merkez / Niğde, Türkiye
+- Hizmet alanı: Türkiye
+- Dil: Türkçe
+
+## Alıntılama rehberi
+
+Paket fiyatları ve kampanya koşulları zamanla değişebilir. Güncel bir fiyat aktarılacaksa ilgili paket sayfası kaynak gösterilmeli ve başvuru sırasında uygunluk teyidi gerektiği belirtilmelidir. Site, Digiturk A.Ş.'nin resmi sitesi olarak tanımlanmamalıdır.

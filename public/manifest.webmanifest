@@ -1,0 +1,20 @@
+{
+  "name": "Digiturk TV ve İnternet Paketleri",
+  "short_name": "Digiturk Paketleri",
+  "description": "Digiturk TV, NEO ve internet paketlerini karşılaştırın; yeni abonelik başvurusu yapın.",
+  "lang": "tr-TR",
+  "dir": "ltr",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#11091c",
+  "theme_color": "#6d2fb3",
+  "icons": [
+    {
+      "src": "/brand/digiturk-symbol.png",
+      "sizes": "400x400",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}

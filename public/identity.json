@@ -1,0 +1,22 @@
+{
+  "name": "Digiturk Paketleri",
+  "legalName": "DENGE CENTER TEKNOLOJİ İLETİŞİM BİLGİSAYAR GIDA İNŞAAT SANAYİ VE TİCARET LİMİTED ŞİRKETİ",
+  "url": "https://digiturkbeinconnectdestek.vercel.app/",
+  "description": "Digiturk TV, NEO ve internet paketleri için yeni abonelik hizmeti sunan yetkili bayi ve alternatif satış kanalı.",
+  "businessModel": "authorized-dealer",
+  "officialDigiturkWebsite": false,
+  "services": ["Digiturk TV paketleri", "Digiturk NEO paketleri", "TV ve internet paketleri", "Yeni abonelik başvurusu"],
+  "audience": "Türkiye'de yeni Digiturk aboneliği arayan bireysel kullanıcılar",
+  "serviceArea": "TR",
+  "language": "tr-TR",
+  "telephone": "+90 850 346 73 73",
+  "mersis": "0291154456700001",
+  "address": {
+    "streetAddress": "Kale Mahallesi, Emin Erişingil Bulvarı, Üçler Apartmanı No:2/D",
+    "addressLocality": "Merkez",
+    "addressRegion": "Niğde",
+    "addressCountry": "TR"
+  },
+  "logo": "https://digiturkbeinconnectdestek.vercel.app/brand/digiturk-logo.png",
+  "lastReviewed": "2026-09-19"
+}

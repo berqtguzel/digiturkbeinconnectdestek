@@ -1,0 +1,49 @@
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://digiturkbeinconnectdestek.vercel.app/#organization",
+      "name": "DENGE CENTER TEKNOLOJİ İLETİŞİM BİLGİSAYAR GIDA İNŞAAT SANAYİ VE TİCARET LİMİTED ŞİRKETİ",
+      "alternateName": "Digiturk Paketleri",
+      "url": "https://digiturkbeinconnectdestek.vercel.app/",
+      "logo": "https://digiturkbeinconnectdestek.vercel.app/brand/digiturk-logo.png",
+      "telephone": "+90 850 346 73 73",
+      "description": "Digiturk yeni abonelik işlemleri sunan yetkili bayi ve alternatif satış kanalıdır; Digiturk A.Ş.'nin resmi web sitesi değildir.",
+      "identifier": {
+        "@type": "PropertyValue",
+        "name": "MERSİS",
+        "value": "0291154456700001"
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Kale Mahallesi, Emin Erişingil Bulvarı, Üçler Apartmanı No:2/D",
+        "addressLocality": "Merkez",
+        "addressRegion": "Niğde",
+        "addressCountry": "TR"
+      },
+      "areaServed": { "@type": "Country", "name": "Türkiye" }
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://digiturkbeinconnectdestek.vercel.app/#website",
+      "url": "https://digiturkbeinconnectdestek.vercel.app/",
+      "name": "Digiturk Paketleri",
+      "inLanguage": "tr-TR",
+      "publisher": { "@id": "https://digiturkbeinconnectdestek.vercel.app/#organization" }
+    },
+    {
+      "@type": "Service",
+      "@id": "https://digiturkbeinconnectdestek.vercel.app/#service",
+      "name": "Digiturk yeni abonelik hizmeti",
+      "serviceType": "TV, dijital yayın ve internet paketi yeni abonelik aracılığı",
+      "provider": { "@id": "https://digiturkbeinconnectdestek.vercel.app/#organization" },
+      "areaServed": { "@type": "Country", "name": "Türkiye" },
+      "availableChannel": {
+        "@type": "ServiceChannel",
+        "serviceUrl": "https://digiturkbeinconnectdestek.vercel.app/iletisim",
+        "servicePhone": { "@type": "ContactPoint", "telephone": "+90 850 346 73 73", "contactType": "sales", "availableLanguage": "Turkish" }
+      }
+    }
+  ]
+}

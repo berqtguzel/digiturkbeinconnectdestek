@@ -1,0 +1,14 @@
+/* TEAM */
+Company: DENGE CENTER TEKNOLOJİ İLETİŞİM BİLGİSAYAR GIDA İNŞAAT SANAYİ VE TİCARET LİMİTED ŞİRKETİ
+Location: Niğde, Türkiye
+Contact: 0850 346 73 73
+
+/* SITE */
+Language: Turkish
+Standards: HTML5, CSS, TypeScript, JSON-LD, Web App Manifest
+Framework: Next.js
+Purpose: Digiturk TV, NEO ve internet paketleri için yeni abonelik bilgilendirmesi ve başvurusu
+Updated: 2026-09-19
+
+/* DISCLOSURE */
+Bu site Digiturk A.Ş.'nin resmi web sitesi değildir. Yetkili bayi ve alternatif satış kanalıdır; yalnızca yeni abonelik işlemleri yapılır.

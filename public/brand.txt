@@ -1,0 +1,11 @@
+Brand: Digiturk Paketleri
+Operator: DENGE CENTER TEKNOLOJİ İLETİŞİM BİLGİSAYAR GIDA İNŞAAT SANAYİ VE TİCARET LİMİTED ŞİRKETİ
+Positioning: Digiturk yeni abonelikleri için yetkili bayi ve alternatif satış kanalı
+Primary language: tr-TR
+Service area: Türkiye
+Primary color: #6d2fb3
+Background color: #11091c
+Logo: https://digiturkbeinconnectdestek.vercel.app/brand/digiturk-logo.png
+Symbol: https://digiturkbeinconnectdestek.vercel.app/brand/digiturk-symbol.png
+Phone: 0850 346 73 73
+Legal notice: Digiturk A.Ş.'nin resmi web sitesi değildir. Tüm ticari markaların isim hakları ticari sahiplerine aittir.
