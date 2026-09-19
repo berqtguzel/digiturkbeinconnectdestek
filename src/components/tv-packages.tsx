@@ -3,6 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
+import { ArrowUpRightIcon } from "@/components/icons";
 import { useRef, useState } from "react";
 import { PackageDialog } from "@/components/tv-packages/package-dialog";
 import { PlanCard } from "@/components/tv-packages/plan-card";
@@ -120,7 +121,7 @@ export function TvPackages() {
             ))}
           </div>
           <a href="#tv-bolgeler">
-            İlinize özel fiyatı bulun <span aria-hidden="true">↗</span>
+            İlinize özel fiyatı bulun <ArrowUpRightIcon />
           </a>
         </div>
         <div className="tv-plan-grid">
@@ -214,7 +215,7 @@ export function TvPackages() {
             değişir.
           </p>
           <a href="/neo-paketleri">
-            Kutusuz seçenekleri keşfedin <span aria-hidden="true">↗</span>
+            Kutusuz seçenekleri keşfedin <ArrowUpRightIcon />
           </a>
         </article>
       </section>
@@ -243,7 +244,7 @@ export function TvPackages() {
             </li>
           </ol>
           <a href="tel:08503467373" className="tv-application-phone">
-            <small>Konuşarak karar vermek isterseniz</small>0850 346 73 73 ↗
+            <small>Konuşarak karar vermek isterseniz</small>0850 346 73 73
           </a>
         </div>
         <form

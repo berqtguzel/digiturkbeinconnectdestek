@@ -1,3 +1,5 @@
+import Image from "next/image";
+import { ArrowUpRightIcon } from "@/components/icons";
 import type { TvPlan } from "@/data/tv-plans";
 
 type PlanCardProps = {
@@ -15,6 +17,17 @@ export function PlanCard({ plan, onChoose, onShowDetails }: PlanCardProps) {
         </span>
         <span className="tv-plan-badge">{plan.badge}</span>
       </div>
+      {plan.name === "Yıldız Dolu" && (
+        <div className="tv-plan-cover">
+          <Image
+            src="/paket_card.webp"
+            alt="Trendyol Süper Lig, Avrupa ligleri ve Formula 1"
+            width={800}
+            height={450}
+            sizes="(max-width: 850px) 80vw, 30vw"
+          />
+        </div>
+      )}
       <div className="tv-plan-name">
         <span>{plan.subtitle}</span>
         <h3>{plan.name}</h3>
@@ -36,7 +49,7 @@ export function PlanCard({ plan, onChoose, onShowDetails }: PlanCardProps) {
       </ul>
       <div className="tv-plan-actions">
         <button type="button" className="tv-plan-detail" onClick={() => onShowDetails(plan.id)}>
-          Paketi incele <span aria-hidden="true">↗</span>
+          Paketi incele <ArrowUpRightIcon />
         </button>
         <button type="button" className="tv-primary" onClick={() => onChoose(plan.id)}>
           Bu paketi seç <span aria-hidden="true">→</span>

@@ -267,6 +267,31 @@
   font-size: 9px;
   color: #d6b6ef;
 }
+.tv-plan-cover {
+  position: relative;
+  height: 145px;
+  overflow: hidden;
+  margin: 18px -10px 0;
+  border: 1px solid #d0a3f33d;
+  border-radius: 13px;
+  background: #130b20;
+  box-shadow: 0 14px 30px #09030f66;
+}
+.tv-plan-cover::after {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 58%, #20162cdd);
+  content: "";
+}
+.tv-plan-cover img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 350ms ease;
+}
+.tv-plan:hover .tv-plan-cover img {
+  transform: scale(1.035);
+}
 .tv-plan-name {
   margin: 23px 0 16px;
 }

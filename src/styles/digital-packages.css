@@ -762,7 +762,7 @@
 }
 .digital-grid {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 18px;
 }
 .digital-card {
@@ -988,9 +988,11 @@
   padding: 0 13px;
   color: #f3eafb;
   background: #180e24;
+  font-size: 11px;
 }
 .shared-application-form input::placeholder {
   color: #766583;
+  font-size: 10px;
 }
 .application-fields {
   display: grid;

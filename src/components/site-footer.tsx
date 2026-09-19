@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { ArrowUpRightIcon } from "@/components/icons";
 
 const columns = [
   {
@@ -38,7 +39,7 @@ export function SiteFooter() {
           </div>
           <div className="footer-invitation-actions">
             <a className="footer-apply" href="/iletisim#iletisim-basvuru">
-              Size uygun paketi bulalım<span aria-hidden="true">↗</span>
+              Size uygun paketi bulalım <ArrowUpRightIcon />
             </a>
             <a className="footer-call" href="tel:08503467373">
               <span>Başvuru hattı</span>
@@ -81,7 +82,7 @@ export function SiteFooter() {
             <h3>İLK ADIMI BİRLİKTE ATALIM</h3>
             <p>Paketler ve başvuru süreci hakkında bilgi alın.</p>
             <a href="tel:08503467373">
-              0850 346 73 73<span aria-hidden="true">↗</span>
+              0850 346 73 73 <ArrowUpRightIcon />
             </a>
             <a className="footer-top" href="#main-content">
               Sayfanın başına dön<span aria-hidden="true">↑</span>

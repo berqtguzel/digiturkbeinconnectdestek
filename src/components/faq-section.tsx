@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { ArrowUpRightIcon } from "@/components/icons";
 
 const questions = [
   {
@@ -95,7 +96,7 @@ export function FaqSection() {
           <h3>Birlikte netleştirelim.</h3>
           <p>Size uygun paketi seçmek için başvuru hattını arayabilirsiniz.</p>
           <a href="tel:08503467373">
-            0850 346 73 73<span aria-hidden="true">↗</span>
+            0850 346 73 73 <ArrowUpRightIcon />
           </a>
           <span className="faq-help-caption">Paket ve yeni abonelik başvuruları</span>
         </div>

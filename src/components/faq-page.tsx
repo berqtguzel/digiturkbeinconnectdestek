@@ -1,6 +1,7 @@
 "use client";
 
 import { useMemo, useState } from "react";
+import { ArrowUpRightIcon } from "@/components/icons";
 import { faqCategories } from "@/data/faq-data";
 
 export function FaqPage() {
@@ -113,7 +114,7 @@ export function FaqPage() {
           <p>Yeni abonelik ve paket seçimi için başvuru hattından destek alın.</p>
         </div>
         <a href="/iletisim#iletisim-basvuru">
-          Hemen başvur <span>↗</span>
+          Hemen başvur <ArrowUpRightIcon />
         </a>
         <a href="tel:08503467373">
           <small>Başvuru hattı</small>0850 346 73 73

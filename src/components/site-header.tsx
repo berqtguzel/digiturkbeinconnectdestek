@@ -152,14 +152,13 @@ export function SiteHeader() {
       </div>
       <div id="mobile-menu" className="mobile-menu" hidden={!open}>
         <nav aria-label="Mobil ana menü">
-          {links.map(([label, href], index) => (
+          {links.map(([label, href]) => (
             <a
               key={label}
               href={href}
               aria-current={href === pathname ? "page" : undefined}
               onClick={() => setOpen(false)}
             >
-              <span className="nav-number">0{index + 1}</span>
               <span>{label}</span>
               <Arrow />
             </a>

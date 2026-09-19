@@ -164,6 +164,13 @@ export function MatchSchedule() {
           <div className="featured-match-bottom">
             <Icon kind="screen" />
             <span>Telefon, tablet ve Smart TV’de maç keyfi</span>
+            <Image
+              className="match-platform-logo"
+              src="/bein-connect-logo.png"
+              alt="beIN CONNECT"
+              width={126}
+              height={38}
+            />
           </div>
         </article>
         <div className="upcoming-matches">

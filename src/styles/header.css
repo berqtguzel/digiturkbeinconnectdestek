@@ -209,11 +209,6 @@
 .mobile-menu nav a:hover {
   color: var(--accent);
 }
-.nav-number {
-  font-size: 10px;
-  opacity: 0.45;
-  font-variant-numeric: tabular-nums;
-}
 .mobile-menu nav a > svg {
   margin-left: auto;
   width: 16px;

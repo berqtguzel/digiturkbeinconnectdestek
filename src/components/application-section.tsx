@@ -19,9 +19,7 @@ export function ApplicationSection({
 }: ApplicationSectionProps) {
   const [city, setCity] = useState("");
   const [planId, setPlanId] = useState(
-    defaultPlanId && plans.some((item) => item.id === defaultPlanId)
-      ? defaultPlanId
-      : plans[0].id,
+    defaultPlanId && plans.some((item) => item.id === defaultPlanId) ? defaultPlanId : plans[0].id,
   );
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
@@ -53,7 +51,7 @@ export function ApplicationSection({
           </li>
         </ul>
         <a href="tel:08503467373">
-          <small>Konuşarak karar vermek isterseniz</small>0850 346 73 73 <span>↗</span>
+          <small>Konuşarak karar vermek isterseniz</small>0850 346 73 73
         </a>
       </div>
       <form

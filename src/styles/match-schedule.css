@@ -276,16 +276,11 @@
 .featured-match-bottom > svg {
   width: 14px;
 }
-.match-platform {
+.match-platform-logo {
   margin-left: auto;
-  font-size: 16px;
-  letter-spacing: -1px;
-  color: #e5d4f4;
-}
-.match-platform b {
-  font-size: 8px;
-  letter-spacing: 1px;
-  font-weight: 450;
+  width: 118px;
+  height: auto;
+  object-fit: contain;
 }
 .upcoming-matches {
   display: flex;
@@ -422,8 +417,8 @@
   .featured-match-bottom {
     flex-wrap: wrap;
   }
-  .match-platform {
-    font-size: 14px;
+  .match-platform-logo {
+    width: 105px;
   }
 }
 @media (max-width: 850px) {
@@ -523,8 +518,8 @@
     margin-top: 16px;
     font-size: 8px;
   }
-  .match-platform {
-    display: none;
+  .match-platform-logo {
+    width: 92px;
   }
   .upcoming-matches {
     grid-template-columns: 1fr;

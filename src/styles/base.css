@@ -40,6 +40,11 @@ button,
 a {
   -webkit-tap-highlight-color: transparent;
 }
+.arrow-up-right-icon {
+  width: 15px;
+  height: 15px;
+  flex: 0 0 auto;
+}
 a:focus-visible,
 button:focus-visible {
   outline: 2px solid var(--accent);
