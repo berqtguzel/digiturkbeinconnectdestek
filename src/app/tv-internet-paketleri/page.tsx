@@ -3,6 +3,7 @@ import { DigitalPackagesPage } from "@/components/digital-packages-page";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 import { internetPlans } from "@/data/digital-plans";
+import "../../styles/digital-packages.css";
 
 export const metadata: Metadata = {
   title: "TV + İnternet Paketleri",

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { FaqPage } from "@/components/faq-page";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
+import "../../styles/faq-page.css";
 
 export const metadata: Metadata = {
   title: "Sıkça Sorulan Sorular",

@@ -4,6 +4,7 @@ import { SiteFooter } from "@/components/site-footer";
 import { TvPackages } from "@/components/tv-packages";
 import { tvPlans } from "@/data/tv-plans";
 import { absoluteUrl, serializeJsonLd } from "@/lib/site";
+import "../../styles/tv-packages.css";
 
 const title = "Uydulu Digiturk TV Paketleri";
 const description =

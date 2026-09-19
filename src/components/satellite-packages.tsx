@@ -188,7 +188,7 @@ export function SatellitePackages() {
               <a
                 className="package-buy"
                 href={`/iletisim?plan=${pack.region === 3 ? "super" : pack.region === 2 ? "koi" : "national"}#iletisim-basvuru`}
-                aria-label={`${pack.region}. bölge Yıldız Dolu paketine başvur`}
+                aria-label={`Paketi seç, izlemeye başla: ${pack.region}. bölge Yıldız Dolu`}
               >
                 Paketi seç, izlemeye başla
                 <Arrow />

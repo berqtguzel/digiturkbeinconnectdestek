@@ -4,6 +4,8 @@ import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 import { internetPlans, neoPlans } from "@/data/digital-plans";
 import { tvPlans } from "@/data/tv-plans";
+import "../../styles/contact.css";
+import "../../styles/digital-packages.css";
 
 export const metadata: Metadata = {
   title: "İletişim",

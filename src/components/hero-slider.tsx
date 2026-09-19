@@ -1,12 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useEffect, useRef, useState } from "react";
-import type { Swiper as SwiperInstance } from "swiper";
-import { A11y, Autoplay, EffectFade } from "swiper/modules";
-import { Swiper, SwiperSlide } from "swiper/react";
-import "swiper/css";
-import "swiper/css/effect-fade";
+import { useEffect, useState } from "react";
 
 const slides = [
   {
@@ -56,27 +51,20 @@ function Chevron({ back = false }: { back?: boolean }) {
 }
 
 export function HeroSlider() {
-  const slider = useRef<SwiperInstance | null>(null);
-  const progress = useRef<HTMLSpanElement>(null);
   const [active, setActive] = useState(0);
-  const [playing, setPlaying] = useState(false);
+  const [playing, setPlaying] = useState(true);
+  const slide = slides[active];
 
   useEffect(() => {
-    const preference = window.matchMedia("(prefers-reduced-motion: reduce)");
-    const syncPreference = () => {
-      const instance = slider.current;
-      if (!instance) return;
-      instance.params.speed = preference.matches ? 0 : 650;
-      if (preference.matches) instance.autoplay.stop();
-      else instance.autoplay.start();
-    };
-    syncPreference();
-    preference.addEventListener("change", syncPreference);
-    return () => preference.removeEventListener("change", syncPreference);
-  }, []);
+    if (!playing || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    const timer = window.setInterval(() => {
+      setActive((current) => (current + 1) % slides.length);
+    }, 6000);
+    return () => window.clearInterval(timer);
+  }, [playing]);
 
-  function stopAutoplay() {
-    slider.current?.autoplay.stop();
+  function selectSlide(index: number) {
+    setActive((index + slides.length) % slides.length);
   }
 
   return (
@@ -85,7 +73,7 @@ export function HeroSlider() {
       aria-label="Digiturk kampanyaları"
       aria-roledescription="slayt gösterisi"
       onFocusCapture={(event) => {
-        if (!(event.target as HTMLElement).closest(".pause-button")) stopAutoplay();
+        if (!(event.target as HTMLElement).closest(".pause-button")) setPlaying(false);
       }}
     >
       <div className="hero-heading">
@@ -97,88 +85,51 @@ export function HeroSlider() {
       </div>
       <div className="hero-frame">
         <h1 className="sr-only">Digiturk TV ve internet kampanyaları</h1>
-        <Swiper
-          modules={[A11y, Autoplay, EffectFade]}
-          effect="fade"
-          fadeEffect={{ crossFade: true }}
-          speed={650}
-          rewind
-          autoplay={{
-            enabled: false,
-            delay: 6000,
-            disableOnInteraction: true,
-            pauseOnMouseEnter: true,
-          }}
-          a11y={{
-            containerMessage: "Digiturk kampanyaları",
-            itemRoleDescriptionMessage: "kampanya",
-            slideLabelMessage: "{{index}} / {{slidesLength}}",
-          }}
-          onSwiper={(instance) => {
-            slider.current = instance;
-          }}
-          onSlideChange={(instance) => {
-            setActive(instance.realIndex);
-          }}
-          onAutoplayStart={() => setPlaying(true)}
-          onAutoplayStop={() => {
-            setPlaying(false);
-            if (progress.current) progress.current.style.transform = "scaleX(0)";
-          }}
-          onAutoplayTimeLeft={(_, __, remaining) => {
-            if (progress.current) progress.current.style.transform = `scaleX(${1 - remaining})`;
-          }}
-          className="campaign-swiper"
+        <div
+          className="campaign-stage"
+          role="group"
+          aria-roledescription="kampanya"
+          aria-label={`${active + 1} / ${slides.length}`}
         >
-          {slides.map((slide, index) => (
-            <SwiperSlide key={slide.image}>
-              <div className="campaign-slide" inert={active !== index}>
-                <a
-                  className="campaign-art"
-                  href={slide.href}
-                  tabIndex={active === index ? 0 : -1}
-                  aria-label={`${slide.title}: kampanyayı incele`}
-                >
-                  <Image
-                    src={slide.image}
-                    alt={slide.alt}
-                    fill
-                    sizes="(max-width: 640px) 100vw, (max-width: 1440px) 94vw, 1344px"
-                    preload={index === 0}
-                    className="campaign-image"
-                  />
-                </a>
-                <div className="campaign-caption">
-                  <div>
-                    <span className="campaign-category">{slide.category}</span>
-                    <h2>{slide.title}</h2>
-                    <p>{slide.description}</p>
-                  </div>
-                  <a
-                    className="campaign-cta"
-                    href={slide.href}
-                    tabIndex={active === index ? 0 : -1}
-                  >
-                    Kampanyayı incele
-                    <Chevron />
-                  </a>
-                </div>
+          <div className="campaign-slide" key={slide.image}>
+            <a
+              className="campaign-art"
+              href={slide.href}
+              aria-label={`${slide.title}: kampanyayı incele`}
+            >
+              <Image
+                src={slide.image}
+                alt={slide.alt}
+                fill
+                sizes="(max-width: 640px) calc(100vw - 32px), (max-width: 1199px) calc(100vw - 64px), 1344px"
+                loading={active === 0 ? "eager" : "lazy"}
+                fetchPriority={active === 0 ? "high" : "auto"}
+                quality={70}
+                className="campaign-image"
+              />
+            </a>
+            <div className="campaign-caption">
+              <div>
+                <span className="campaign-category">{slide.category}</span>
+                <h2>{slide.title}</h2>
+                <p>{slide.description}</p>
               </div>
-            </SwiperSlide>
-          ))}
-        </Swiper>
+              <a className="campaign-cta" href={slide.href}>
+                Kampanyayı incele
+                <Chevron />
+              </a>
+            </div>
+          </div>
+        </div>
         <div className="hero-controls">
           <div className="campaign-selectors" aria-label="Kampanya seçimi">
             {slides.map((slide, index) => (
               <button
                 key={slide.title}
                 className={`campaign-selector${active === index ? " selected" : ""}`}
-                aria-label={`${index + 1}. kampanya: ${slide.title}`}
+                aria-label={`0${index + 1} ${slide.title}`}
                 aria-current={active === index ? "true" : undefined}
-                onClick={() => {
-                  stopAutoplay();
-                  slider.current?.slideTo(index);
-                }}
+                onClick={() => selectSlide(index)}
               >
                 <span className="selector-index">0{index + 1}</span>
                 <span className="selector-title">{slide.title}</span>
@@ -194,8 +145,8 @@ export function HeroSlider() {
               className="slider-button pause-button"
               aria-label={playing ? "Otomatik geçişi duraklat" : "Otomatik geçişi başlat"}
               onClick={() => {
-                if (playing) stopAutoplay();
-                else slider.current?.autoplay.start();
+                if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+                setPlaying((current) => !current);
               }}
             >
               <svg
@@ -211,27 +162,21 @@ export function HeroSlider() {
             <button
               className="slider-button"
               aria-label="Önceki kampanya"
-              onClick={() => {
-                stopAutoplay();
-                slider.current?.slidePrev();
-              }}
+              onClick={() => selectSlide(active - 1)}
             >
               <Chevron back />
             </button>
             <button
               className="slider-button"
               aria-label="Sonraki kampanya"
-              onClick={() => {
-                stopAutoplay();
-                slider.current?.slideNext();
-              }}
+              onClick={() => selectSlide(active + 1)}
             >
               <Chevron />
             </button>
           </div>
         </div>
-        <div className="slide-progress" aria-hidden="true">
-          <span ref={progress} />
+        <div className={`slide-progress${playing ? " is-playing" : ""}`} aria-hidden="true">
+          <span key={active} />
         </div>
       </div>
       <p className="campaign-footnote">
