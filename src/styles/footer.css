@@ -14,7 +14,7 @@
   right: -180px;
   bottom: -240px;
   background: #c6a2fa;
-  mask: url("/digiturk-symbol.png") center / contain no-repeat;
+  mask: url("/brand/digiturk-symbol.png") center / contain no-repeat;
   opacity: 0.045;
   pointer-events: none;
 }
@@ -99,7 +99,7 @@
   left: 43%;
   top: -80px;
   background: #c6a2fa;
-  mask: url("/digiturk-symbol.png") center / contain no-repeat;
+  mask: url("/brand/digiturk-symbol.png") center / contain no-repeat;
   opacity: 0.075;
   transform: rotate(-15deg);
   pointer-events: none;

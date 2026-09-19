@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import { matches } from "@/data/matches";
 
 const labels = ["GÜN", "SAAT", "DK", "SN"];
+const visibilityKey = "digiturk-floating-match-open";
 
 function getRemaining(kickoff: string) {
   return Math.max(0, Math.floor((Date.parse(kickoff) - Date.now()) / 1000));
@@ -14,6 +15,19 @@ export function FloatingMatchCard() {
   const match = matches[0];
   const [remaining, setRemaining] = useState<number | null>(null);
   const [isOpen, setIsOpen] = useState(true);
+  const [isReady, setIsReady] = useState(false);
+
+  useEffect(() => {
+    let revealFrame = 0;
+    const stateFrame = window.requestAnimationFrame(() => {
+      setIsOpen(window.localStorage.getItem(visibilityKey) !== "false");
+      revealFrame = window.requestAnimationFrame(() => setIsReady(true));
+    });
+    return () => {
+      window.cancelAnimationFrame(stateFrame);
+      window.cancelAnimationFrame(revealFrame);
+    };
+  }, []);
 
   useEffect(() => {
     const update = () => setRemaining(getRemaining(match.kickoff));
@@ -35,7 +49,8 @@ export function FloatingMatchCard() {
 
   return (
     <aside
-      className={`floating-match${isOpen ? "" : " is-collapsed"}`}
+      className={`floating-match${isOpen ? "" : " is-collapsed"}${isReady ? "" : " is-pending"}`}
+      style={{ visibility: isReady ? "visible" : "hidden" }}
       aria-label="Yaklaşan büyük maç"
     >
       <button
@@ -43,7 +58,13 @@ export function FloatingMatchCard() {
         type="button"
         aria-expanded={isOpen}
         aria-label={isOpen ? "Maç kartını kapat" : "Maç kartını aç"}
-        onClick={() => setIsOpen((current) => !current)}
+        onClick={() => {
+          setIsOpen((current) => {
+            const next = !current;
+            window.localStorage.setItem(visibilityKey, String(next));
+            return next;
+          });
+        }}
       >
         <span aria-hidden="true">{isOpen ? "×" : "MAÇ"}</span>
       </button>

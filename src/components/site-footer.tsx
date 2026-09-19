@@ -52,7 +52,7 @@ export function SiteFooter() {
           <div className="footer-brand">
             <Link href="/" aria-label="Digiturk anasayfa">
               <Image
-                src="/digiturk-logo.png"
+                src="/brand/digiturk-logo.png"
                 alt="Digiturk"
                 width={140}
                 height={50}

@@ -2,7 +2,7 @@
   position: fixed;
   z-index: 45;
   right: 18px;
-  top: 50%;
+  bottom: 18px;
   width: 326px;
   max-width: calc(100vw - 36px);
   box-sizing: border-box;
@@ -18,12 +18,17 @@
   box-shadow:
     0 22px 55px rgba(9, 2, 20, 0.44),
     inset 0 1px 0 rgba(255, 255, 255, 0.06);
-  transform: translateY(-50%);
+  transform: none;
   backdrop-filter: blur(18px);
   transition:
     width 220ms ease,
     padding 220ms ease,
     border-radius 220ms ease;
+}
+
+.floating-match.is-pending {
+  visibility: hidden;
+  transition: none;
 }
 
 .floating-match-toggle {
@@ -42,7 +47,9 @@
   background: rgba(13, 4, 25, 0.5);
   cursor: pointer;
   font: inherit;
-  transition: background 180ms ease, color 180ms ease;
+  transition:
+    background 180ms ease,
+    color 180ms ease;
 }
 
 .floating-match-toggle:hover {

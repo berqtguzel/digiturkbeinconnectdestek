@@ -89,7 +89,7 @@ export function SiteHeader() {
           onClick={() => setOpen(false)}
         >
           <Image
-            src="/digiturk-logo.png"
+            src="/brand/digiturk-logo.png"
             alt="Digiturk"
             width={128}
             height={45}

@@ -20,7 +20,7 @@ export function PlanCard({ plan, onChoose, onShowDetails }: PlanCardProps) {
       {plan.name === "Yıldız Dolu" && (
         <div className="tv-plan-cover">
           <Image
-            src="/paket_card.webp"
+            src="/packages/tv-sports.webp"
             alt="Trendyol Süper Lig, Avrupa ligleri ve Formula 1"
             width={800}
             height={450}

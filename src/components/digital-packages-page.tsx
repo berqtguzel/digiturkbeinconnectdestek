@@ -83,7 +83,13 @@ export function DigitalPackagesPage({ mode, plans }: Props) {
           >
             <div className="speed-panel-top">
               <span className="speed-brand">
-                <Image src="/digiturk-symbol.png" alt="" width={24} height={24} sizes="24px" />
+                <Image
+                  src="/brand/digiturk-symbol.png"
+                  alt=""
+                  width={24}
+                  height={24}
+                  sizes="24px"
+                />
                 <span>DIGITURK NET</span>
               </span>
               <strong>BAĞLANTI İYİ</strong>
@@ -137,52 +143,14 @@ export function DigitalPackagesPage({ mode, plans }: Props) {
           </div>
         ) : (
           <div className="neo-device-stage" aria-hidden="true">
-            <div className="neo-stage-glow" />
-            <div className="neo-stage-topline">
-              <span className="neo-stage-brand">
-                <Image src="/digiturk-symbol.png" alt="" width={22} height={22} />
-                DIGITURK NEO
-              </span>
-              <span className="neo-live-pill">● CANLI</span>
-            </div>
-            <div className="neo-float-tag neo-float-tag-one">KUTU YOK</div>
-            <div className="neo-float-tag neo-float-tag-two">HER YERDE</div>
-            <div className="neo-tv">
-              <div className="neo-screen neo-screen-sport">
-                <span>CANLI SPOR</span>
-                <Image src="/digiturk-symbol.png" alt="" width={62} height={62} />
-                <strong>Heyecan büyük ekranda</strong>
-              </div>
-              <i />
-              <b />
-            </div>
-            <div className="neo-laptop">
-              <div className="neo-screen neo-screen-film">
-                <small>FİLM &amp; DİZİ</small>
-                <strong>İstediğin zaman izle</strong>
-                <span>▶</span>
-              </div>
-              <i />
-            </div>
-            <div className="neo-tablet">
-              <div className="neo-screen neo-screen-live">
-                <span>ŞİMDİ YAYINDA</span>
-                <strong>CANLI TV</strong>
-                <small>Tek dokunuşla</small>
-              </div>
-            </div>
-            <div className="neo-phone">
-              <span />
-              <div className="neo-phone-screen">
-                <Image src="/digiturk-symbol.png" alt="" width={34} height={34} />
-                <strong>NEO</strong>
-                <small>CEBİNDE</small>
-              </div>
-            </div>
-            <div className="neo-stage-caption">
-              <span>KUTUSUZ · KURULUMSUZ</span>
-              <strong>Her ekran senin ekranın.</strong>
-            </div>
+            <Image
+              className="neo-stage-image"
+              src="/packages/neo-sports.jpg"
+              alt=""
+              fill
+              sizes="(max-width: 900px) 100vw, 48vw"
+            />
+            <span className="neo-stage-shine" />
           </div>
         )}
       </section>

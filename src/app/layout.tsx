@@ -40,8 +40,8 @@ export const metadata: Metadata = {
     description: siteConfig.description,
   },
   icons: {
-    icon: { url: "/digiturk-symbol.png", type: "image/png" },
-    apple: "/digiturk-symbol.png",
+    icon: { url: "/brand/digiturk-symbol.png", type: "image/png" },
+    apple: "/brand/digiturk-symbol.png",
   },
 };
 

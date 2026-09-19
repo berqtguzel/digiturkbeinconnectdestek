@@ -82,7 +82,7 @@ export function TvPackages() {
               <span>DİZİ</span>
             </div>
             <Image
-              src="/digiturk-symbol.png"
+              src="/brand/digiturk-symbol.png"
               alt=""
               width={250}
               height={250}

@@ -726,6 +726,26 @@
 .neo-stage-caption strong {
   font-size: 15px;
 }
+.neo-device-stage {
+  height: auto;
+  aspect-ratio: 2348 / 1824;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+}
+.neo-device-stage::after {
+  display: none;
+}
+.neo-stage-image {
+  object-fit: cover;
+  object-position: center;
+  transform: scale(1.075);
+}
+.neo-stage-shine {
+  display: none;
+}
 .digital-catalog {
   padding: 85px 48px;
 }
@@ -1090,9 +1110,11 @@
   .digital-hero-visual {
     height: 350px;
   }
-  .speed-test-panel,
-  .neo-device-stage {
+  .speed-test-panel {
     height: 390px;
+  }
+  .neo-device-stage {
+    height: auto;
   }
   .digital-catalog,
   .digital-compare {
